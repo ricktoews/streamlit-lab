@@ -8,16 +8,21 @@ calendar.setfirstweekday(calendar.SUNDAY)
 # Title for the app
 st.title("Calendar App")
 
-year_str = st.text_input("Year:")
-
 # List of month names for autocompletion
 month_names = [
     "--- Month ---", "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ]
 
+col1, col2 = st.columns(2)
+
+with col1:
+    selected_month = st.selectbox("Select a month:", month_names)
+
 # Create a datalist element with month names
-selected_month = st.selectbox("Select a month:", month_names)
+with col2:
+    year_str = st.text_input("Year:")
+
 month_index = month_names.index(selected_month)
 
 #month_str = st.text_input("Month:")
