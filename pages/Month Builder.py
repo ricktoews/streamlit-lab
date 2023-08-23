@@ -6,7 +6,7 @@ from build_calendar import build_calendar
 calendar.setfirstweekday(calendar.SUNDAY)
 
 # Title for the app
-st.title("Calendar App")
+st.title("Month Builder")
 
 # List of month names for autocompletion
 month_names = [

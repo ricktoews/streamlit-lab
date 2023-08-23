@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 
+st.title("The 12-Digit Calendar")
 st.write("""
 The year is 2023. The 12-digit calendar for this year is **0 3 3 6 1 4 6 2 5 0 3 5**, with each digit corresponding to its respective month. You find the day of the week by adding the month's digit to the date.
 
