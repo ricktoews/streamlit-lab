@@ -74,7 +74,7 @@ def calc_dow(year, leap_days, month_offset, date, century_offset):
 
 st.title("Calendar Playground")
 
-century_range = st.slider("Century Rante", min_value=1, max_value=23, value=[20, 21])
+century_range = st.slider("Century Range", min_value=1, max_value=23, value=[20, 21])
 
 play_date = get_random_date(century_range)
 
