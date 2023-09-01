@@ -1,6 +1,16 @@
 import streamlit as st
 import pandas as pd
 
+st.markdown(
+    """
+<style>
+thead tr th:nth-child(1),
+tbody tr th:nth-child(1) { display:none; }
+</style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title("The 12-Digit Calendar")
 
 with open("calendar.epub", "rb") as epub:
@@ -165,15 +175,13 @@ data = [
     {"Century Year": "1800:", "Offset": "3"},
     {"Century Year": "1700:", "Offset": "5"},
     {"Century Year": "1600:", "Offset": "0"},
-    {"Century Year": "Earlier century years:", "Offset": 
-        "19 minus century year / 100:<br />"
-        "1500: 19 - 15 = 4<br />"
-        "1400: 19 - 14 = 5<br />"
-        "1300: 19 - 13 = 6<br />"
-        "1200: 19 - 12 = 7, modulo 7 = 0<br />"
-        "1100: 19 - 11 = 8, modulo 7 = 1<br />"
-        "and so on."
-    }
+    {"Century Year": "Earlier century years:", "Offset": "19 minus century year / 100:"},
+    {"Century Year": "1500:", "Offset": "19 - 15 = 4"},
+    {"Century Year": "1400:", "Offset": "19 - 14 = 5"},
+     {"Century Year": "1300:", "Offset": "19 - 13 = 6"},
+     {"Century Year": "1200:", "Offset": "19 - 12 = 7, mod 7 = 0"},
+     {"Century Year": "1100:", "Offset": "19 - 11 = 8, mod 7 = 1 "},
+     {"Century Year": "and so on", "Offset": ""}
 ]
 
 st.table(data)
@@ -219,7 +227,7 @@ st.header("The Calendar Change. October 1582.")
 st.write("""        
 The official word is that 10 days were dropped from the calendar in October 1582, so that Thursday, October 4 was followed by Friday, October 15.
 
-So, while what we've covered will allow you to calculate most dates in the 1500s, it will fail spectacularly for anything after October 4 in the 16th century. (And such a calamity hardly bears contemplation!)
+So, while what we've covered will allow you to calculate most dates in the 1500s, it will fail spectacularly for anything after October 4 in the 16th century.
 
 So here's what you do. Instead of getting the century offset by subtracting 15 from 19, treat the last nearly two decades of the 1500s as if they were from the 1900s, and use 1 as the century offset. This should give you a Friday for October 15, 1582:
 
